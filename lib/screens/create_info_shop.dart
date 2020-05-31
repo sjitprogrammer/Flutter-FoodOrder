@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class CreateInfoShop extends StatefulWidget {
   @override
@@ -25,6 +26,10 @@ class _CreateInfoShopState extends State<CreateInfoShop> {
               height: 5.0,
             ),
             GroupImage(),
+            SizedBox(
+              height: 10.0,
+            ),
+            showMap(),
           ],
         ),
       ),
@@ -86,7 +91,9 @@ class _CreateInfoShopState extends State<CreateInfoShop> {
   Row GroupImage() {
     return Row(
       children: <Widget>[
-        Expanded(flex: 2, child: Icon(Icons.camera_alt,size: 36.0,color: Colors.grey)),
+        Expanded(
+            flex: 2,
+            child: Icon(Icons.camera_alt, size: 36.0, color: Colors.grey)),
         Expanded(
           flex: 4,
           child: Container(
@@ -98,11 +105,26 @@ class _CreateInfoShopState extends State<CreateInfoShop> {
             child: Image.asset("images/placeholder_img.png"),
           ),
         ),
-        Expanded(flex: 2, child: Icon(Icons.image,size: 36.0,color: Colors.grey)),
+        Expanded(
+            flex: 2, child: Icon(Icons.image, size: 36.0, color: Colors.grey)),
       ],
     );
   }
-  Container showMap(){
-    return Container();
+
+  Container showMap() {
+    LatLng latLng = LatLng(13.791166, 100.442195);
+    CameraPosition cameraPosition = CameraPosition(
+      target: latLng,
+      zoom: 16.0,
+    );
+    return Container(
+      height: 300.0,
+      padding: EdgeInsets.symmetric(vertical: 20),
+      child: GoogleMap(
+        initialCameraPosition: cameraPosition,
+        mapType: MapType.normal,
+        onMapCreated:(controller) => {},
+      ),
+    );
   }
 }
