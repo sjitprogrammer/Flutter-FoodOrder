@@ -11,7 +11,7 @@ class _CreateInfoShopState extends State<CreateInfoShop> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Shop Infomation"),
+        title: Text("Shop Information"),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -30,13 +30,42 @@ class _CreateInfoShopState extends State<CreateInfoShop> {
               height: 10.0,
             ),
             showMap(),
+            showSaveButton(),
           ],
         ),
       ),
     );
   }
 
-  Widget nameTextField() => Row(
+  Widget showSaveButton() {
+    return Container(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            width: MediaQuery
+                .of(context)
+                .size
+                .width,
+            child: RaisedButton.icon(
+                icon:Icon(Icons.save),
+                label: Text(
+                  "Save",
+                  style: TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(18.0),
+                ),
+                color: Theme
+                    .of(context)
+                    .primaryColor,
+                textColor: Colors.white,
+                onPressed: () {
+
+                }),
+          );
+  }
+
+  Widget nameTextField() =>
+      Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Container(
@@ -53,7 +82,8 @@ class _CreateInfoShopState extends State<CreateInfoShop> {
         ],
       );
 
-  Widget addressTextField() => Row(
+  Widget addressTextField() =>
+      Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Container(
@@ -70,7 +100,8 @@ class _CreateInfoShopState extends State<CreateInfoShop> {
         ],
       );
 
-  Widget phoneTextField() => Row(
+  Widget phoneTextField() =>
+      Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Container(
@@ -123,7 +154,7 @@ class _CreateInfoShopState extends State<CreateInfoShop> {
       child: GoogleMap(
         initialCameraPosition: cameraPosition,
         mapType: MapType.normal,
-        onMapCreated:(controller) => {},
+        onMapCreated: (controller) => {},
       ),
     );
   }
