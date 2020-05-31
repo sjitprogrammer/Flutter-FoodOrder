@@ -5,6 +5,7 @@ import 'package:foodorder/screens/main_user.dart';
 import 'package:foodorder/screens/signin.dart';
 import 'package:foodorder/screens/signup.dart';
 import 'package:foodorder/utility/alert_dialog.dart';
+import 'package:foodorder/utility/my_style.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Home extends StatefulWidget {
@@ -35,8 +36,6 @@ class _HomeState extends State<Home> {
           case "rider":
             routeToService(MainRider());
             break;
-          default:
-            routeToService(MainUser());
         }
       }
     } catch (e) {
@@ -93,7 +92,11 @@ class _HomeState extends State<Home> {
 
   UserAccountsDrawerHeader showDrawerHeader() {
     return UserAccountsDrawerHeader(
-        accountName: Text('Guest'), accountEmail: Text("Please Login"));
+      decoration:MyStyle().BackgroundHeader("https://images.pexels.com/photos/4022595/pexels-photo-4022595.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"),
+      currentAccountPicture: MyStyle().showLogo(),
+      accountName: Text('Guest'),
+      accountEmail: Text("Please Login"),
+    );
   }
 
   void routeToService(Widget page) {

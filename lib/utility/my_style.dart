@@ -32,5 +32,28 @@ class MyStyle {
     );
   }
 
+  BoxDecoration BackgroundHeader(String img) {
+    return BoxDecoration(
+        image: DecorationImage(
+      image: NetworkImage(img),
+      fit: BoxFit.cover,
+    ));
+  }
+
+  Widget TitleCenter(context,String message) {
+    return Center(
+      child: Container(
+        width: MediaQuery.of(context).size.width*0.8,
+        child: Text(
+          message,
+          style: TextStyle(
+            fontSize: 24.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    );
+  }
+
   MyStyle();
 }

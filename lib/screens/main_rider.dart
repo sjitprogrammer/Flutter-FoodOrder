@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodorder/utility/my_style.dart';
 import 'package:foodorder/utility/singout.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -38,6 +39,29 @@ class _MainRiderState extends State<MainRider> {
               })
         ],
       ),
+      drawer: showDrawer(),
     );
+  }
+
+  Drawer showDrawer() => Drawer(
+    child: ListView(
+      children: <Widget>[
+        showDrawerHeader(),
+      ],
+    ),
+  );
+
+  UserAccountsDrawerHeader showDrawerHeader() {
+    return UserAccountsDrawerHeader(
+      decoration:MyStyle().BackgroundHeader("https://images.pexels.com/photos/310983/pexels-photo-310983.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"),
+      currentAccountPicture: MyStyle().showLogo(),
+      accountName: Text(user_name),
+      accountEmail: Text("Rider"),
+    );
+  }
+
+  void routeToService(Widget page) {
+    MaterialPageRoute route = MaterialPageRoute(builder: (context) => page);
+    Navigator.pushAndRemoveUntil(context, route, (route) => false);
   }
 }

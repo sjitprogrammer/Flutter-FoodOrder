@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:foodorder/screens/home.dart';
 import 'package:foodorder/screens/signin.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -12,6 +13,6 @@ Future<void> signOutUser(BuildContext context) async {
 //    await preferences.setString('user_type', null);
 //  exit(0);
     MaterialPageRoute route =
-        MaterialPageRoute(builder: (context) => SignInPage());
+        MaterialPageRoute(builder: (context) => Home());
     Navigator.pushAndRemoveUntil(context, route, (route) => false);
 }

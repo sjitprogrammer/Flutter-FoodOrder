@@ -157,6 +157,7 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget passwordForm() => Container(
       width: 250,
       child: TextField(
+        obscureText: true,
         onChanged: (value) => password = value.trim(),
         decoration: InputDecoration(
           prefixIcon: Icon(

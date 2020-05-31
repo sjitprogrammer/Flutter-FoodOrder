@@ -90,6 +90,7 @@ class _SignInPageState extends State<SignInPage> {
   Widget PasswordForm() => Container(
       width: 250,
       child: TextField(
+        obscureText: true,
         onChanged: (value) => password = value,
         decoration: InputDecoration(
           prefixIcon: Icon(
